@@ -1,89 +1,101 @@
+*{
+  box-sizing: border-box;
+}
+
 body{
   font-family: 'Roboto', sans-serif;
-}
-
-#home-page{
   height: 100vh;
-  background: url('../../assets/background.jpg') no-repeat;
+  background:linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,.5)), url('../../assets/background.jpg') no-repeat;
   background-size: contain;
   background-position: bottom right; 
+  margin: 0px;
 }
 
-@media screen and (max-width: 600px) {
-  #home-page {
-    background:none;
-  }
-}
-
-#home-page .content{
-  width: 100%;
-  height: 100%;
+.login{
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
 }
 
-#home-page .content header {
-  margin: 10px 0 0;
-}
-
-#home-page .content header img{
+.login header img{
   width: 120px;
   margin-top: -20px;
   margin-left: -10px;
 }
 
-#home-page .content main {
-  max-width: 100%;
-  margin-left: 70px;
+.login main{
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: left;
+  align-items: center;
+  width: 40vw;
+  background: rgba(255, 255, 255, .7);
+  padding: 15px;
+  border-radius: 4px;
+  margin: auto;
+  padding: 15px;
+  border-radius: 4px;
+  box-shadow: 0 0 15px 4px rgba(0,0,0,0.06);
 }
 
-#home-page .content main h1{
-  color: #07085b;
-  font-size: 47px;
+@media screen and (max-width: 576px) {
+  .login main{
+    -ms-flex: 0 0 90%;
+    flex: 0 0 90%;
+    width: 100%;
+    box-shadow: none;
+    height: 100vh;
+  }  
+}
+
+.login main h1{
+  color: #1e4277;
   margin-bottom: 0px;
+  font-size: 47px;
+  text-align: center;
 }
 
-#home-page .content main p{
-  color: #1b5581;
-  font-size: 25px;
-  margin-left: 60px;
+.login main p{
+  color: #1e4277;
   margin-top: 10px;
 }
 
-#home-page .content main button{
-  width: 200px;
-  height: 56px;
-  background: #f6b767;
-  border-radius: 8px;
-  color: #ffffff;
-  font-weight: bold;
-  font-size: 16px;
-  border: 0;
-  align-self: flex-end;
-  margin-top: 40px;
-  cursor: pointer;
-  margin-left: 10px;
-}
-
-#home-page .content main button:hover{
-  background: #B1F7FF;
-}
-
-#home-page .content main label{
-  font-size: 14px;
-  margin-bottom: 8px;
-  color: red
-}
-
-#home-page .content main input{
+.login main input{
+  width: 70%;
   padding: 10px;
   border: 0px;
   margin-top: 20px;
   border-radius: 10px;
   box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
-  width: 400px
+}
+
+.login main .actions{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+}
+
+.login main .actions button {
+  width: 150px;
+  height: 57px;
+  background: #f6b767;
+  border-radius: 8px;
+  color: #ffff;
+  font-weight: bold;
+  font-size: 16px;
+  border: 0;
+  margin-top: 40px;
+  cursor: pointer;
+}
+
+.login footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color:#eae6dc;
+  text-align: center;
+  font-size: 10px;
+  text-align: right;
 }
