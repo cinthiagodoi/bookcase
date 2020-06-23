@@ -1,0 +1,122 @@
+*{
+  box-sizing: border-box;
+}
+
+body{
+  font-family: 'Roboto', sans-serif;
+}
+
+.createUser{
+  background:linear-gradient(rgba(255,255,255,.9), rgba(255,255,255,.9)), url('../../assets/background.jpg') no-repeat;
+  background-size: contain;
+  background-position: bottom right; 
+}
+
+.createUser header{
+  display: flex;
+  align-items: center;
+
+}
+
+.createUser header img{
+  width: 120px;
+  margin-top: -20px;
+  margin-left: -10px;
+}
+
+.createUser form{
+  padding: 64px;
+  max-width: 500px;
+  border-radius: 8px;
+  
+  display: flex;
+  flex-direction: column;
+  border-radius: 4px;
+  margin: auto;
+  padding: 15px;
+  border-radius: 4px;
+  box-shadow: 0 0 15px 4px rgba(0,0,0,0.06);
+}
+
+.createUser form h1{
+  font-size: 30px;
+  color: #1e4277;
+  text-align: center;
+
+}
+
+.createUser form fieldset {
+  margin-top: 20px;
+  min-inline-size: auto;
+  border: 0;
+  width: 90%;
+  margin-left: auto;
+}
+
+.createUser form .field {
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 24px;
+}
+
+.createUser form label {
+  font-size: 14px;
+  color:#1b5581;
+}
+
+.createUser form input#name,
+.createUser form input#email,
+.createUser form input#password{
+  width: 90%;
+  padding: 10px;
+  border: 0px;
+  margin-top: 10px;
+  border-radius: 10px;
+  box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+}
+
+.createUser .actions {
+  display: flex;
+  justify-content: space-evenly;
+}
+.createUser .actions button{
+  width: 200px;
+  height: 50px;
+  background: #f6b767;
+  border-radius: 8px;
+  color: #ffff;
+  font-weight: bold;
+  font-size: 16px;
+  border: 0;
+  cursor: pointer;
+}
+
+.createUser .actions button:hover{
+  background: #e8c6a6; 
+}
+
+.createUser .actions a{
+  width: 200px;
+  height: 50px;
+  color:#000099;
+  font-weight: bold;
+  font-size: 16px;
+  border: 0;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  line-height: 52px;
+}
+
+@media screen and (max-width: 576px) {
+  .createUser form{
+    -ms-flex: 0 0 90%;
+    flex: 0 0 90%;
+    width: 100%;
+    box-shadow: none;
+    height: 100vh;
+  }  
+}

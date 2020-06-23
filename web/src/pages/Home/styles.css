@@ -4,14 +4,16 @@
 
 body{
   font-family: 'Roboto', sans-serif;
+ 
+}
+
+.login{
   height: 100vh;
   background:linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,.5)), url('../../assets/background.jpg') no-repeat;
   background-size: contain;
   background-position: bottom right; 
+  
   margin: 0px;
-}
-
-.login{
   display: flex;
   flex-direction: column;
 }
@@ -27,11 +29,11 @@ body{
   flex-direction: column;
   justify-content: left;
   align-items: center;
-  width: 40vw;
+  width: 50vw;
   background: rgba(255, 255, 255, .7);
   padding: 15px;
   border-radius: 4px;
-  margin: auto;
+  margin: 0 auto;
   padding: 15px;
   border-radius: 4px;
   box-shadow: 0 0 15px 4px rgba(0,0,0,0.06);
@@ -87,6 +89,10 @@ body{
   border: 0;
   margin-top: 40px;
   cursor: pointer;
+}
+
+.login main .actions button:hover {
+  background: #e8c6a6;
 }
 
 .login footer {

@@ -1,6 +1,6 @@
 import React from 'react';
 import logo from '../../assets/logo.jpg';
-import {Link, NavLink} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 import './styles.css';
 
@@ -20,7 +20,9 @@ const Home = () => {
           
         <div className='actions'>
           <button type='submit'>SIGN IN</button>
-          <button type='submit'>CREATE AN ACCOUNT</button>
+          <Link to='/create-account' >
+            <button type='submit'>CREATE AN ACCOUNT</button>
+          </Link>
         </div>
       </main>  
 
