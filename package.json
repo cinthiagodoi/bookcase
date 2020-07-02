@@ -1,6 +1,0 @@
-{
-  "dependencies": {
-    "@types/react-router-dom": "^5.1.5",
-    "typeface-roboto": "0.0.75"
-  }
-}
