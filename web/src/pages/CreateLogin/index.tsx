@@ -16,6 +16,7 @@ const CreateLogin = () => {
     password: '',
   })
 
+
   function handleInputChange(event: ChangeEvent<HTMLInputElement>) {
     const { name, value } = event.target;
     setFormData({...formData, [name]: value });
@@ -23,15 +24,21 @@ const CreateLogin = () => {
 
   async function handleSubmit(event: FormEvent) {
     event.preventDefault();
-    const {name, email, password } = formData;
-
-    await api.post('users', formData)
-
-    alert ('user created')
-
-    history.push('/')
-
   
+    await api.post('users', formData)
+      .then((res => {
+        alert('User created!')
+        history.push('/')
+        return res.data
+      }))
+       .catch((err => {
+         if(err.response) {
+           let teste = err.response.data
+            for(const [key, value] of Object.entries(teste)){
+              console.log(teste)
+            }
+         }
+       }))    
   }
 
   return (
@@ -56,11 +63,16 @@ const CreateLogin = () => {
           <div className="field">
             <label htmlFor="email">Email</label>
             <input 
+              
               type="text" 
               name="email"
               id="email"
+              
               onChange = {handleInputChange}
               />
+              
+         
+            
           </div>
 
           <div className="field">

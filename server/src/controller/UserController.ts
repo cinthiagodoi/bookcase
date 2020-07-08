@@ -1,8 +1,7 @@
-import {getRepository, getManager} from "typeorm";
+import {getRepository, getManager, Index} from "typeorm";
 import {NextFunction, Request, Response} from "express";
 import {User} from "../entity/User";
 import {validate} from 'class-validator';
-import e = require("express");
 
 export class UserController {
 
@@ -18,10 +17,16 @@ export class UserController {
 
     async save(request: Request, response: Response, next: NextFunction) {
 			const user = this.userRepository.create(request.body);
+			const data = {}
 			validate(user).then(async errors => {
 				if(errors.length > 0) {
-					console.log('failed')
-					response.send(errors);
+					for(let i = 0; errors.length > i;){
+						errors.forEach(erro => {
+							data[erro.property] = Object.values(erro.constraints)
+							i++
+						})
+						response.status(400).send(data);
+					}          
 				}else {
 					await getManager().save(user);
 					response.send(user)

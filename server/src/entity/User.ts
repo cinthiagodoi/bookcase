@@ -8,17 +8,17 @@ export class User {
     fullfillmentId: number;
 
 		@Column()
-		@IsNotEmpty( { message: 'Name is required'})
+		@IsNotEmpty({message: 'Name should not be empty'})
 		name: string;
 		
 
 		@Column()
-		@IsEmail({}, { message: 'Incorrecetemail'})
-		@IsNotEmpty( { message: 'Email is required'})
+		@IsEmail()
+		@IsNotEmpty()
     email: string;
 
 		@Column()
-		@IsNotEmpty( { message: 'password is required'})
+		@IsNotEmpty()
 		password: string;
 
 		constructor(user: Partial<User>){
