@@ -120,3 +120,8 @@ body{
     height: 100vh;
   }  
 }
+
+.createUser p.error {
+  color: red;
+  font-size: 14px;
+}
