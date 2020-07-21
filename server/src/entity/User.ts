@@ -1,5 +1,6 @@
-import {Entity, PrimaryGeneratedColumn, Column, Unique} from "typeorm";
+import {Entity, PrimaryGeneratedColumn, Column, Unique, BeforeInsert, BeforeUpdate} from "typeorm";
 import {IsEmail, validate, validateOrReject, IsNotEmpty} from 'class-validator';
+import * as bcrypt from 'bcrypt';
 
 @Entity()
 export class User {
@@ -21,9 +22,19 @@ export class User {
 		@IsNotEmpty()
 		password: string;
 
+		@BeforeInsert()
+		@BeforeUpdate()
+		hashPassword() {
+			if(this.password) {
+				const salt = bcrypt.genSaltSync();
+				const hashPassword = bcrypt.hashSync(this.password, salt);
+				this.password = hashPassword;
+			}
+		}
+
 		constructor(user: Partial<User>){
 			Object.assign(this, user);
 		}
-
 }
+
 

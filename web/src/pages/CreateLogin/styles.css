@@ -7,7 +7,8 @@ body{
 }
 
 .createUser{
-  background:linear-gradient(rgba(255,255,255,.9), rgba(255,255,255,.9)), url('../../assets/background.jpg') no-repeat;
+  height: 100vh;
+  background:linear-gradient(rgba(255,255,255,.8), rgba(255,255,255,.8)), url('../../assets/background.jpg') no-repeat;
   background-size: contain;
   background-position: bottom right; 
 }
@@ -35,14 +36,13 @@ body{
   margin: auto;
   padding: 15px;
   border-radius: 4px;
-  box-shadow: 0 0 15px 4px rgba(0,0,0,0.06);
+  box-shadow: 0 0 15px 4px rgba(0,0,0,0.02);
 }
 
 .createUser form h1{
   font-size: 30px;
   color: #1e4277;
   text-align: center;
-
 }
 
 .createUser form fieldset {
