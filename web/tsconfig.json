@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "noImplicitAny": true,
     "target": "es5",
     "lib": [
       "dom",
@@ -17,9 +18,12 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react"
+    "jsx": "react",
+    "outDir": "./dist/",
+    "sourceMap": true,
+    
   },
   "include": [
-    "src"
+    "./src/**/*"
   ]
 }

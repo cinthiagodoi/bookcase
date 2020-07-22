@@ -1,36 +1,37 @@
-import React, { Component } from 'react';
+import React, { Component, Props } from 'react';
 import logo from '../../assets/logo.jpg';
-import { Link} from 'react-router-dom';
+import { Link, RouteComponentProps  } from 'react-router-dom';
 import api from '../../services/api';
+import { login } from '../../services/auth'
 
 import './styles.css';
 
-class Home extends Component {
+class Home extends Component<RouteComponentProps<any>>{
   state = {
     email: '',
     password: '',
     error: ''
   };
   
-
- // handleSignIn = async (e: any) => {
-  //  e.preventDefault()
-//const { email, password } = this.state;
+  handleSignIn = async (e: any) => {
+    e.preventDefault()
+    const { email, password } = this.state;
     
-  //  if( !email || !password) {
-    //  this.setState({ error: 'Preencha email e senha para continuar'})
- //   } else {
-   //   try {
-    //    const response = await api.post('users', { email, password });
+    if( !email || !password) {
+      this.setState({ error: 'Preencha email e senha para continuar'})
+    } else {
+    try {
+      const response = await api.post('login', { email, password});
+      login(response.data.accessToken)
+      this.props.history.push("/app");
         
-   //   } catch (err) {
-    //    this.setState({
-     //     error:
-      //      'Houve um problema'
-//})
-   //   }
-  //  }
-//  }
+    } catch (err) {
+      this.setState({
+        error:'Houve um problema'
+      })
+    }
+  }
+}
 
 render() {
   return (
@@ -38,8 +39,8 @@ render() {
       <header>
         <img src={logo} alt='BookCase'/>
       </header>
-  
-      <form >
+
+      <form onSubmit={this.handleSignIn}>
         <main>
           <h1>Your online BookCase!</h1>
           <p>Keep all your reading organized!</p>
